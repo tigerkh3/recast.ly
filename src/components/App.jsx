@@ -1,5 +1,5 @@
-// import VideoList from './components/VideoList.js';
-// import exampleVideoData from './data/exampleVideoData.js';
+import VideoList from './VideoList.js';
+import exampleVideoData from '../data/exampleVideoData.js';
 
 var App = () => (
   <div>
@@ -13,7 +13,7 @@ var App = () => (
         <div><h5><em>videoPlayer</em> view goes here</h5></div>
       </div>
       <div className="col-md-5">
-        <div>{props.videoList}</div>
+        <VideoList videoData={exampleVideoData} />
       </div>
     </div>
   </div>

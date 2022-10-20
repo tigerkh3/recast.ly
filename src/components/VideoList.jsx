@@ -1,9 +1,12 @@
+import VideoListEntry from './VideoListEntry.js';
 
 var VideoList = (props) => (
   <div className="video-list">
-    <div>{props.videoData}</div>
+    {props.videos.map((currVideo) => (
+      <VideoListEntry video={currVideo} />
+    ))}
   </div>
-  );
+);
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
