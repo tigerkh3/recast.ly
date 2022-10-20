@@ -6,8 +6,24 @@ const { useState } = React;
 
 var App = () => {
   // creating hook here
+
+  // set up a state for the list of all the "data"
+  // at this point we're doing it for the hard coded exampleVideoData that is static
   const [list, setList] = useState(exampleVideoData);
-  const [currentVid, setCurrentVid] = useState('');
+  // set up state for currentVideo that we want videoPlayer to render
+  const [currentVid, setCurrentVid] = useState(exampleVideoData[0]);
+
+  var handleClick = function(e) {
+    // to handle a click we need to know what video was clicked
+    // then update current video url and communicate that info to VideoPlayer
+    // e.target.id is going to be the url.
+
+    // use filter to reduce array of all video data into single video object in an array
+    var currVid = list.filter((vid) => vid.id.videoId === e.target.id);
+    // call on setCurrentVid with arg as the object in side of currVid array to update the state
+    setCurrentVid(currVid[0]);
+    console.log('Handle Click log', currVid);
+  };
 
   return (
     <div>
@@ -18,11 +34,10 @@ var App = () => {
       </nav>
       <div className="row">
         <div className="col-md-7">
-          {/* Hard-coded single vid here for testing */}
-          <VideoPlayer video={exampleVideoData[0]}/>
+          <VideoPlayer video={currentVid}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={exampleVideoData} />
+          <VideoList handleClick={handleClick} videos={exampleVideoData} />
         </div>
       </div>
     </div>
