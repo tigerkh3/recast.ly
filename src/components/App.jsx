@@ -1,6 +1,7 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '../data/exampleVideoData.js';
+import searchYoutube from '../lib/searchYoutube.js';
 
 const { useState } = React;
 
@@ -22,8 +23,13 @@ var App = () => {
     var currVid = list.filter((vid) => vid.id.videoId === e.target.id);
     // call on setCurrentVid with arg as the object in side of currVid array to update the state
     setCurrentVid(currVid[0]);
-    console.log('Handle Click log', currVid);
+    // console.log('Handle Click log', currVid);
   };
+
+  // put in useEffect ??
+  // call on searchYoutube function to generate data
+  // eventually query string will come from App Search Bar
+  // searchYoutube('query test', )
 
   return (
     <div>
