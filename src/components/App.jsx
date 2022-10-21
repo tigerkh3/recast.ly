@@ -26,6 +26,16 @@ var App = () => {
     // console.log('Handle Click log', currVid);
   };
 
+  // THIS WORKS
+  // searchYoutube('cat', (data) => {
+  //   console.log('cat data', data, '\nFirst Cat Vid Title is: ', data[0].snippet.title);
+  // });
+
+  // Testing with empty string also works
+  searchYoutube('', (data) => {
+    console.log('all data?', data, '\nFirst Vid Title is: ', data[0].snippet.title);
+  });
+
   // put in useEffect ??
   // call on searchYoutube function to generate data
   // eventually query string will come from App Search Bar
