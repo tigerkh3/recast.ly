@@ -1,12 +1,28 @@
 import VideoListEntry from './VideoListEntry.js';
+// import searchYouTube from '../lib/searchYoutube.js';
 
-var VideoList = (props) => (
-  <div className="video-list">
-    {props.videos.map((currVideo) => (
-      <VideoListEntry handleClick={props.handleClick} video={currVideo} />
-    ))}
-  </div>
-);
+var VideoList = (props) => {
+
+  // var result = props.search('cat', (data) => {
+  //   console.log('data', Array.isArray(data));
+  //   return data;
+  //   // console.log(test);
+  // });
+
+  // console.log('what is test holding', test._test2);
+
+  // var test = result;
+
+  console.log('Search type', typeof props.search);
+
+  return (
+    <div className="video-list">
+      {props.videos.map((currVideo) => (
+        <VideoListEntry handleClick={props.handleClick} video={currVideo} />
+      ))}
+    </div>
+  );
+};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

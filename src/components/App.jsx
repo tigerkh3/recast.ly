@@ -1,18 +1,25 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '../data/exampleVideoData.js';
-import searchYoutube from '../lib/searchYoutube.js';
+// import searchYouTube from '../lib/searchYoutube.js';
+import { API_KEY, YOUTUBE_API_KEY } from '../config/config.js';
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 var App = () => {
   // creating hook here
 
   // set up a state for the list of all the "data"
   // at this point we're doing it for the hard coded exampleVideoData that is static
-  const [list, setList] = useState(exampleVideoData);
+  const [list, setList] = useState([]);
   // set up state for currentVideo that we want videoPlayer to render
   const [currentVid, setCurrentVid] = useState(exampleVideoData[0]);
+
+  useEffect(() => {
+    // set state to YT data (search Youtube)
+    // update list state with results of search
+    // then in child component we can iterate over list var
+  }, []);
 
   var handleClick = function(e) {
     // to handle a click we need to know what video was clicked
@@ -26,21 +33,6 @@ var App = () => {
     // console.log('Handle Click log', currVid);
   };
 
-  // THIS WORKS
-  // searchYoutube('cat', (data) => {
-  //   console.log('cat data', data, '\nFirst Cat Vid Title is: ', data[0].snippet.title);
-  // });
-
-  // Testing with empty string also works
-  searchYoutube('', (data) => {
-    console.log('all data?', data, '\nFirst Vid Title is: ', data[0].snippet.title);
-  });
-
-  // put in useEffect ??
-  // call on searchYoutube function to generate data
-  // eventually query string will come from App Search Bar
-  // searchYoutube('query test', )
-
   return (
     <div>
       <nav className="navbar">
@@ -53,7 +45,7 @@ var App = () => {
           <VideoPlayer video={currentVid}/>
         </div>
         <div className="col-md-5">
-          <VideoList handleClick={handleClick} videos={exampleVideoData} />
+          <VideoList search={searchYouTube} handleClick={handleClick} videos={exampleVideoData} />
         </div>
       </div>
     </div>
