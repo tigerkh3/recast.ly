@@ -2,7 +2,6 @@
 
 var VideoPlayer = (props) => {
   var ytEmb = 'https://www.youtube.com/embed/';
-  // console.log('VIDEO', props.video);
 
   return (
     <div className="video-player">
