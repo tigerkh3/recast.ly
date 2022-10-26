@@ -1,9 +1,9 @@
 
 var VideoList = (props) => (
   <div className="video-list">
-    <div>{props.videoData}</div>
+    <div>'hi'</div>
   </div>
-  );
+);
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
